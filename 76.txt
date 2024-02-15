@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Famms - The Fashion Store</title>
+        <!-- <link rel="stylesheet" href="../style.css"> -->
+        <style>
+            /* Font Name - Poppins ( Link in Description ) */
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+            /* Font Name - Merienda ( Link in Description ) */
+            @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;500;600;700&display=swap');
+
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: poppins;
+                scroll-behavior: smooth;
+            }
+
+            :root {
+                --pr-color: #f7444e;
+                --sc-Color: #002c3e;
+                --font-color: #0c0c0c;
+                --Bg-Color: #f8f8f8;
+            }
+
+
+            /* -------- Navbar CSS -------- */
+            .navbar {
+                width: 100%;
+                height: 90px;
+                /* background-color: cyan; */
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 10%;
+                position: sticky;
+            }
+
+            .navbar .logo img {
+                cursor: pointer;
+            }
+
+            .navbar .navlinks {
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar .navlinks li {
+                list-style: none;
+                margin: 0 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .navbar .navlinks li a {
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+                text-decoration: none;
+                color: var(--sc-Color);
+                transition: all .5s ease;
+            }
+
+            .navbar .navlinks li a:hover,
+            .navbar .navlinks li ion-icon:hover {
+                color: var(--pr-color);
+            }
+
+            .navbar .navlinks li ion-icon {
+                font-size: 19px;
+                color: var(--sc-Color);
+                cursor: pointer;
+                transition: all .5s ease;
+            }
+
+
+
+            /* -------- Home Section CSS -------- */
+
+            .home_section {
+                width: 100%;
+                height: 85vh;
+                background-image: url(./img/slider-bg.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 0 10%;
+            }
+
+            .home_section .home_container {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .home_section .home_container .heading {
+                font-size: 46px;
+                font-family: Merienda;
+                color: var(--pr-color);
+                line-height: 53px;
+                margin-bottom: 21px;
+                font-weight: 700;
+            }
+
+            .home_section .home_container .heading span {
+                font-family: Merienda;
+                color: var(--sc-Color);
+            }
+
+            .home_section .home_container p {
+                margin-bottom: 15px;
+                font-size: 14px;
+                line-height: 23px;
+                opacity: .9;
+            }
+
+            .home_section .home_container .home_para2 {
+                margin-bottom: 26px;
+            }
+
+            .btn {
+                width: 160px;
+                height: 45px;
+                background-color: var(--pr-color);
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+                border: 1px solid var(--pr-color);
+                transition: all .5s ease;
+            }
+
+            .btn:hover {
+                background: none;
+                border: 1px solid var(--font-color);
+                color: var(--font-color);
+            }
+
+
+
+            /* -------- Poster Section CSS -------- */
+
+            .poster {
+                width: 100%;
+                height: auto;
+                padding: 80px 10%;
+                /* background-color: cyan; */
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            /* This css will implement all the Heading of all section  */
+            .head_text {
+                font-size: 28px;
+                font-family: Merienda;
+                font-weight: 700;
+                color: var(--sc-Color);
+                position: relative;
+                margin-bottom: 80px;
+            }
+
+            .head_text::after {
+                content: '';
+                position: absolute;
+                width: 80px;
+                height: 5px;
+                border-radius: 20px;
+                background-color: var(--pr-color);
+                bottom: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .poster .poster_wrapper {
+                width: 100%;
+                height: auto;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 80px;
+            }
+
+            .poster .poster_wrapper .poster_card {
+                padding: 40px 30px;
+                background-color: var(--sc-Color);
+                color: #fff;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                transition: all .5s ease;
+            }
+
+            .poster .poster_wrapper .poster_card:hover {
+                background-color: var(--pr-color);
+            }
+
+            .poster_wrapper .poster_card .icon {
+                width: 40px;
+            }
+
+            .poster_wrapper .poster_card h4 {
+                font-size: 18px;
+                margin: 6px 0 2px 0;
+            }
+
+            .poster_wrapper .poster_card p {
+                font-size: 14px;
+                opacity: .9;
+            }
+
+
+
+
+
+            /* -------- New Arrival Section CSS -------- */
+
+            .new_arrival {
+                width: 100%;
+                height: 80vh;
+                background-image: url(./img/arrival-bg.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 0 10%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .new_arrival .arrival_container {
+                width: 49%;
+            }
+
+            .new_arrival .arrival_container .heading {
+                font-size: 45px;
+                font-family: Merienda;
+                color: var(--pr-color);
+                font-weight: 600;
+            }
+
+            .new_arrival .arrival_container p {
+                font-size: 15px;
+                font-weight: 400;
+                color: var(--font-color);
+                line-height: 26px;
+                margin: 9px 0 35px 0;
+            }
+
+
+
+
+
+
+            /* -------- Products Section CSS -------- */
+
+            .our_products {
+                width: 100%;
+                height: auto;
+                padding: 90px 11%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .our_products .product_heading span {
+                color: var(--pr-color);
+                font-family: Merienda;
+            }
+
+            .our_products .products_container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 50px;
+                margin-bottom: 65px;
+            }
+
+            .our_products .products_container .product_card {
+                position: relative;
+                padding: 45px 30px;
+                border: 2px solid rgba(51, 51, 51, 0.304);
+                background-color: #f7f7f7;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .products_container .product_card .img {
+                width: auto;
+                height: 180px;
+                margin-bottom: 45px;
+            }
+
+            .products_container .product_card .img img {
+                position: relative;
+                width: auto;
+                height: 100%;
+            }
+
+            .product_card .details {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .product_card .details p {
+                font-weight: 600;
+                font-size: 17px;
+                color: var(--sc-Color);
+            }
+
+            .products_container .product_card .buttons {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.342);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transform: translateY(-100%);
+                transition: all .5s ease;
+            }
+
+            .products_container .product_card:hover .buttons {
+                transform: translateY(0);
+            }
+
+            .product_card .buttons a {
+                width: 180px;
+                height: 45px;
+                margin: 4px 0;
+                background-color: var(--pr-color);
+                border-radius: 30px;
+                display: grid;
+                place-items: center;
+                text-decoration: none;
+                color: #fff;
+                font-weight: 400;
+                border: 1px solid var(--pr-color);
+                transition: all .5s ease;
+            }
+
+            .product_card .buttons a:hover {
+                background: none;
+                color: var(--pr-color);
+            }
+
+            .product_card .buttons .buy_now {
+                background-color: var(--sc-Color);
+                border: 1px solid var(--sc-Color);
+            }
+
+            .product_card .buttons .buy_now:hover {
+                color: var(--sc-Color);
+            }
+
+            .view_allButton {
+                border-radius: 30px;
+            }
+
+
+
+
+            /* -------- Subscribe Letter Section CSS -------- */
+            .subscribe_letter {
+                width: 100%;
+                height: auto;
+                padding: 80px 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #d5cdd3;
+            }
+
+            .subscribe_letter .sub_heading {
+                margin-bottom: 21px;
+            }
+
+            .subscribe_letter .input_box {
+                width: 60%;
+                height: 50px;
+                background-color: #fff;
+                margin-top: 43px;
+                border-radius: 40px;
+                position: relative;
+                margin-bottom: 18px;
+            }
+
+            .subscribe_letter .input_box input {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
+                background: transparent;
+                outline: none;
+                padding: 0 30px;
+                font-size: 18px;
+            }
+
+            .subscribe_letter .sub_btn {
+                width: 230px;
+                border-radius: 40px;
+            }
+
+
+
+
+            /* -------- Testimonials Section CSS -------- */
+
+            .testimonials {
+                width: 100%;
+                height: auto;
+                padding: 80px 10%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .testimonials .swiper {
+                max-width: 860px;
+                height: auto;
+            }
+
+            .testimonials .swiper .swiper-wrapper {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 70px;
+            }
+
+            .swiper-wrapper .swiper-slide {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 30px;
+                background-color: var(--Bg-Color);
+            }
+
+            .swiper-slide img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .swiper-slide .text {
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                max-width: 590px;
+                text-align: center;
+                margin: 19px 0 13px 0;
+            }
+
+            .swiper-slide .details {
+                text-align: center;
+            }
+
+            .swiper-slide .details .name {
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--font-color);
+                line-height: 27px;
+            }
+
+            .swiper-slide .details .job {
+                font-size: 15px;
+                font-weight: 500;
+                opacity: .8;
+            }
+
+
+
+
+            /* -------- Footer Section CSS -------- */
+
+            .footer {
+                width: 100%;
+                height: auto;
+            }
+
+            .footer .footer_container {
+                width: 100%;
+                height: auto;
+                padding: 70px 15%;
+                background-color: var(--Bg-Color);
+                display: grid;
+                grid-template-columns: 40% 30% 30%;
+                grid-gap: 20px;
+            }
+
+            .footer_container img {
+                margin-bottom: 19px;
+            }
+
+            .col_1 p {
+                margin: 10px 0;
+                font-size: 14px;
+            }
+
+            .col_1 p span {
+                font-weight: 600;
+                color: #222;
+                font-size: 15px;
+            }
+
+            .col_2,
+            .col_3 {
+                text-align: center;
+            }
+
+            .footer_container .col p {
+                font-size: 14px;
+                font-weight: 500;
+                opacity: .9;
+                cursor: pointer;
+                transition: all .5s ease;
+                line-height: 24px;
+            }
+
+            .footer_container .col_2 p:hover,
+            .footer_container .col_3 p:hover {
+                color: var(--pr-color);
+                opacity: 1;
+            }
+
+            .footer_container h4 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #222;
+                margin-bottom: 8px;
+            }
+
+            .footer_tagline {
+                text-align: center;
+                padding: 20px;
+                background-color: var(--font-color);
+                color: #fff;
+            }
+        </style>
+
+        <!-- Swiper Js CDN Link ( Link in Description ) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    </head>
+
+    <body>
+        <!-- -------- Navbar Section -------- -->
+        <div class="navbar">
+            <div class="logo">
+                <img src="../img/logo.png" alt="Logo Image" width="145px">
+            </div>
+            <ul class="navlinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#Testimonial">Testimonials</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li>
+                    <ion-icon name="cart"></ion-icon>
+                </li>
+                <li>
+                    <ion-icon name="search"></ion-icon>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- -------- Home Section -------- -->
+        <section class="home_section" id="home">
+            <div class="home_container">
+                <h3 class="heading">Sale 20% Off<br><span>On Everything</span></h3>
+                <p class="home_para1">We provide high quality fashion items for men, women and children. Our products
+                    are timeless, unique and stylish. We offer a wide range of minimalist print products in different
+                    styles and sizes.</p>
+                <p class="home_para2">Our mission is to become the go-to store for customers who are looking for high
+                    quality fashion products. With our products being affordable and highly accessible, we believe that
+                    we can help our customers create and express their own style</p>
+                <a href="#products" class="home_btn btn">Shop Now</a>
+            </div>
+        </section>
+
+
+        <!-- -------- Poster Section -------- -->
+        <section class="poster">
+            <h3 class="poster_heading head_text">Why Shop with Us</h3>
+            <div class="poster_wrapper">
+                <div class="poster_card">
+                    <img src="../img/free-delivery.png" class="icon">
+                    <h4>Free Delivery</h4>
+                    <p>Free Delivery will give to Our Customer</p>
+                </div>
+                <div class="poster_card">
+                    <img src="../img/free-ship.png" class="icon">
+                    <h4>Free Shipping</h4>
+                    <p>Free Shipping will give to Our Customer</p>
+                </div>
+                <div class="poster_card">
+                    <img src="../img/quality.png" class="icon">
+                    <h4>Best Quality</h4>
+                    <p>You will get Best Quality Products</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- -------- New Arrival Section -------- -->
+        <section class="new_arrival">
+            <div class="arrival_container">
+                <h3 class="heading">#NewArrivals</h3>
+                <p>Our mission is to become the go-to store for customers who are looking for high quality fashion
+                    products. With our products being affordable and highly accessible, we believe that we can help our
+                    customers create and express their own style</p>
+                <a href="#products" class="btn arrival_btn">Shop Now</a>
+            </div>
+        </section>
+
+
+        <!-- -------- Our Products Section -------- -->
+        <section class="our_products" id="products">
+            <h3 class="product_heading head_text">Our <span>Products</span></h3>
+
+            <div class="products_container">
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p1.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p2.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p3.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p4.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p5.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p6.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p7.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p8.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p9.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p10.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p11.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Men's Shirt</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="product_card">
+                    <div class="img">
+                        <img src="../img/p12.png" width="140px">
+                    </div>
+                    <div class="details">
+                        <p class="name">Women's Dress</p>
+                        <p class="price">$75</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="addTO_cart">Add To Cart</a>
+                        <a href="#" class="buy_now">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <a href="./product.html" class="view_allButton btn">View All</a>
+        </section>
+
+
+        <!-- -------- Subscribe Letter Section -------- -->
+        <section class="subscribe_letter">
+            <h3 class="sub_heading head_text">Subscribe to Get Discount Offers</h3>
+            <p>Subscribe to our newsletter and get updated on trending news, styles and sales.</p>
+            <div class="input_box">
+                <input type="email">
+            </div>
+            <a href="#" class="btn sub_btn">Subscribe Now</a>
+        </section>
+
+
+        <!-- -------- Testimonials Section ( For Testimonials we will use Swiper Js Library LInk IN Description )-------- -->
+        <section class="testimonials" id="Testimonial">
+            <h3 class="test_heading head_text">Customer's Testimonial</h3>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../img/c1.png" width="140px">
+                        <p class="text">Have bought several things now, pants, tops & dresses, love them all & can’t
+                            wait to receive my new order. Always speedy delivery even over holidays. Totally recommend.
+                        </p>
+                        <div class="details">
+                            <p class="name">Nitin Jangir</p>
+                            <p class="job">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../img/c2.png" width="140px">
+                        <p class="text">Have bought several things now, pants, tops & dresses, love them all & can’t
+                            wait to receive my new order. Always speedy delivery even over holidays. Totally recommend.
+                        </p>
+                        <div class="details">
+                            <p class="name">Nitin Jangir</p>
+                            <p class="job">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../img/c3.png" width="140px">
+                        <p class="text">Have bought several things now, pants, tops & dresses, love them all & can’t
+                            wait to receive my new order. Always speedy delivery even over holidays. Totally recommend.
+                        </p>
+                        <div class="details">
+                            <p class="name">Nitin Jangir</p>
+                            <p class="job">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../img/c4.png" width="140px">
+                        <p class="text">Have bought several things now, pants, tops & dresses, love them all & can’t
+                            wait to receive my new order. Always speedy delivery even over holidays. Totally recommend.
+                        </p>
+                        <div class="details">
+                            <p class="name">Nitin Jangir</p>
+                            <p class="job">Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+
+        <!-- -------- Footer Section -------- -->
+        <section class="footer">
+            <div class="footer_container">
+                <div class=" col col_1">
+                    <img src="../img/logo.png" width="150px">
+                    <p><span>ADDRESS : </span>28 White Tower, Jaipur, Rajasthan</p>
+                    <p><span>TELEPHONE : </span>+91 987654321</p>
+                    <p><span>EMAIL : </span>CrownCoder@gmail.com</p>
+                </div>
+                <div class="col col_2">
+                    <h4 class="heading">MENU</h4>
+                    <P>Home</P>
+                    <P>About</P>
+                    <P>Services</P>
+                    <P>Testimonials</P>
+                    <P>Blog</P>
+                    <P>Contact</P>
+                </div>
+                <div class="col col_3">
+                    <h4 class="heading">ACCOUNT</h4>
+                    <P>Account</P>
+                    <P>Checkout</P>
+                    <P>Login</P>
+                    <P>Register</P>
+                    <P>Shopping</P>
+                    <P>Widget</P>
+                </div>
+            </div>
+            <div class="footer_tagline">
+                <p class="tagline">Copyright &#xa9; 2023 Crown Coder, All Rights Reserved | This Website is Made with
+                    love and Affection.</p>
+            </div>
+        </section>
+
+
+
+
+        <!-- ION-Icon CDN Link ( Link in Description ) -->
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <!-- <script src="../main.js"></script> -->
+        <script>
+            // Testimonials Section 
+
+            var swiper = new Swiper( ".mySwiper", {
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            } );
+        </script>
+    </body>
+
+</html>
